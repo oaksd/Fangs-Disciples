@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="css/style.css">
+
+<title>FSB Temperature Monitoring</title>
+
+<script>
+
+   function getTemp(){
+        var check = 0;
+        var temp = 25.81;
+        document.getElementById("temp").innerHTML = temp;
+    }
+    
+    
+
+</script>
+
+</head>
+<body onload="getTemp()">
+
+<h1 style="text-align: center;">FSB Server Room Temperature</h1>
+
+<div class="container">
+    <div class="de">
+        <div class="den">
+          <div class="dene">
+            <div class="denem">
+              <div class="deneme">
+            <span id="temp"></span><strong>&deg;c</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
