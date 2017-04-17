@@ -1,30 +1,57 @@
 
 /**
- * Write a description of class DisplayTemp here.
+ * Gathers temperature from temperv14 Thermometer and writes that temp to
+ * a txt file
  * 
- * @author (your name) 
+ * @author (Sean Oak) 
  * @version (a version number or a date)
  */
 import java.io.*;
+import java.util.*;
 
 public class DisplayTemp
 {
-    // instance variables - replace the example below with your own
-    private int x;
 
     /**
-     * Constructor for objects of class DisplayTemp
+     * Main method, will run getTemp every 5 seconds, and 
+     * thus will write current temp to a txt file every 5 seconds
      */
     public static void main(String[] args) throws java.io.IOException, java.lang.InterruptedException {
-
-        getTemp();
+      
+        Timer t = new Timer();
+        t.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                try{
+                getTemp();
+            } 
+            catch (java.io.IOException e){
+                System.out.println("IOException " + e);
+            }
+            catch (java.lang.InterruptedException e){
+                /// do nothing
+            }
+        }
+        }, 0, 5000);
+        
+        
+        /*
+        Runnable fiveInterval = new Runnable() {
+            public void run() {
+                getTemp();
+        };
+        
+        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+        executor.scheduleAtFixedRate(fiveInterval,0,5,TimeUnit.SECONDS);
+        */
+        /*
+        Timer timer = new Timer();
+        timer.schedule(new FiveInterval(),0,5000);
+    */
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+    /*
+     * Writes current temp taken from terminal ("temperv14") to a file
      */
     public static void getTemp() throws java.io.IOException, java.lang.InterruptedException
     {
@@ -42,6 +69,5 @@ public class DisplayTemp
         proc.waitFor();   
 
     }
-              
 }
 
