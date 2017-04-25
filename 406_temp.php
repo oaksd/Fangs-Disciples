@@ -8,25 +8,9 @@
 <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript">
-
 $(document).ready(function(){
-$('#tempData').load('tempLine.php');
+$('#TempData').load('temp.html');
 });
-
-</script>
-<script type="text/javascript">
-
-$(document).ready(function(){
-$('#currentTemp').load('currentTemp.php');
-});
-
-</script>
-<script type="text/javascript">
-
-$(document).ready(function(){
-$('#email').load('email.php');
-});
-
 </script>
 <script type="text/javascript">
 /*
@@ -34,6 +18,7 @@ jQuery("load").load(function() {
 jQuery.post("sendmail.php",{address: address, message: message});
 return false;
 */
+}
 </script>
 <style type = "text/css">
     div.break {white-space: pre;}
@@ -48,14 +33,18 @@ return false;
 		<div id="TempData" class="break"></div>
 	</div>
 	<div>
-	</div>
+		<?php
+		
+		echo "it worked";
 
-<div id="currentTemp">
-	</div>
-<br>
-<div id="tempData">
-	</div>
+		echo "<br>2<br><br>";
 
+		$output = shell_exec('sudo temperv14 2>&1'); 
+
+		echo $output;
+		
+		?>
+</div>
 </div>	 
 </body>
 </html>

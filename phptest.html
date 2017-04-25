@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PHP Test</title>
+</head>
+<body>
+<div data-role="page" id="FSBTempMonitor">
+	<div data-role="header" data-position="fixed">
+		<h1>FSB Server Temperature Monitor</h1>
+	</div>
+	<div>
+		<?php
+		
+			shell_exec("sudo temperv14")
+		
+		?>
+</div>
+</div>	 
+</body>
+</html>
